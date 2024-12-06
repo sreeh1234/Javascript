@@ -200,19 +200,254 @@ function rev1(){
 
 
 
+// --------TABLE CREATION--------
+// ------------------------------
+
+
+// let data=[{name:'manu',age:22},{name:'ramu',age:26},{name:'sanu',age:24},{name:'anu',age:12}]
+// console.log(data);
+// let table=document.querySelector("tbody")
+// for(i of data){
+//     let tr=document.createElement("tr")
+//     let td=document.createElement("td")
+//     let td1=document.createElement("td")
+//     td.innerHTML=i.name
+//     tr.appendChild(td)
+//     td1.innerHTML=i.age
+//     tr.appendChild(td1)
+//     table.appendChild(tr)
+// }
+
+
+// --------STRING METHODS--------
+// ------------------------------
+
+// let a="      welcome"
+// let b="HELLO"
+// console.log(a.length);
+// console.log(a.charAt(0));
+// console.log(a.concat('  ',b));
+// console.log(a+b);
+// console.log(a.toUpperCase());
+// console.log(a.slice(0,4));
+// console.log(a.replace('w','W'));
+// console.log(a.trim());
+// console.log(a.trimEnd());
+// console.log(a.trimStart());
+// console.log(a.indexOf('l'));
+// console.log(a.startsWith(''));
+// console.log(a.endsWith('e'));
+// console.log(a.search('l'));
+// console.log(a.split());
+
+
+// --------LIST METHODS--------
+// ----------------------------
+
+// let l=[1,2,3,4,5]
+// console.log(l[0]);
+// l.push(10)
+// l.pop()
+// l.shift()
+// l.unshift(11)
+// console.log(l.length);
+// console.log(l.indexOf(5));
+// l[1]=100
+// console.log(l)
+
+// ---------------------------------------------
+
+// function demo1(name,age){
+//     console.log(name,age);
+    
+// }
+// demo1('anu',10)
+
+// ---------------------------------------------
+
+// let demo = function(a){
+//     console.log('nameless fun',a);
+//     console.log('nameless fun',a);
+//     console.log('nameless fun',a);
+    
+// }
+// demo(20)
+
+// ---------------------------------------------
+
+// let add1=function(a,b){
+//     return a+b
+// } 
+// console.log(add1(10,2));
+
+
+// let add = (a,b)=>a+b
+// console.log(add(10,5));
+
+
+// let sub = (a,b,c)=>(a-b)-c
+// console.log(sub(30,20,5));
+
+
+// l=[1,2,3,4,5,6]
+// l.forEach(element => console.log(element))
+
+
+// let data=l.map(a=>a*10)
+// console.log(data);
+
+
+// let data=l.filter(a=>a%2!=0)
+// console.log(data);
+
+// let data1=l.filter(a=>a%2==0)
+// console.log(data1);
 
 
 
-let data=[{name:'manu',age:22},{name:'ramu',age:26},{name:'sanu',age:24},{name:'anu',age:12}]
-console.log(data);
-let table=document.querySelector("tbody")
-for(i of data){
-    let tr=document.createElement("tr")
-    let td=document.createElement("td")
-    let td1=document.createElement("td")
-    td.innerHTML=i.name
-    tr.appendChild(td)
-    td1.innerHTML=i.age
-    tr.appendChild(td1)
-    table.appendChild(tr)
+
+
+// let data=[{name:'manu',age:22},{name:'ramu',age:26},{name:'sanu',age:24},{name:'anu',age:12}]
+// console.log(data);
+// let table=document.querySelector("tbody")
+// data.forEach((i)=>{
+//     let tr=document.createElement("tr")
+//     tr.innerHTML=`
+//     <td>${i.name}</td>
+//     <td>${i.age}</td>
+//     `
+//     table.appendChild(tr)
+// })
+
+
+
+
+// let data=[{name:'manu',age:22},{name:'ramu',age:26},{name:'sanu',age:24},{name:'anu',age:32}]
+// console.log(data);
+// data1=data.filter(i=>i.age>30)
+// data2=data.filter(i=>i.age<30)
+// console.log(data1);
+// let table=document.querySelector("tbody")
+// data1.forEach((i)=>{
+//     let tr=document.createElement("tr")
+//     tr.innerHTML=`
+//     <td>${i.name}</td>
+//     <td>${i.age}</td>
+//     `
+//     table.appendChild(tr)
+// })
+
+
+
+let data=[{id:'1',name:'manu',age:25,place:'tvm'},{id:'2',name:'anu',age:24,place:'tsr'},{id:'3',name:'sanu',age:22,place:'kollam'},{id:'4',name:'akash',age:20,place:'ekm'}]
+
+function display(){
+    let table=document.querySelector("tbody")
+    table.innerHTML=''
+    data.forEach((i) => {
+        let tr=document.createElement("tr")
+        let id_td=document.createElement("td")
+        id_td.innerHTML=i.id
+        tr.appendChild(id_td)
+        let name_td=document.createElement("td")
+        name_td.innerHTML=i.name
+        tr.appendChild(name_td)
+        let age_td=document.createElement("td")
+        age_td.innerHTML=i.age
+        tr.appendChild(age_td)
+        let place_td=document.createElement("td")
+        place_td.innerHTML=i.place
+        tr.appendChild(place_td)
+
+
+        let edit_td=document.createElement("td")
+        let edit_btn=document.createElement("button")
+        edit_btn.textContent="edit"
+        edit_btn.onclick=function(){
+            edit_form(i.id)
+        }
+        edit_td.appendChild(edit_btn)
+        tr.appendChild(edit_td)
+
+        let delete_td=document.createElement("td")
+        let delete_btn=document.createElement("button")
+        delete_btn.textContent="delete"
+        delete_td.appendChild(delete_btn)
+        tr.appendChild(delete_td)
+        
+
+        table.appendChild(tr)
+       
+    })
+   
 }
+
+document.getElementById("add_form").addEventListener('submit',function(event){
+
+    event.preventDefault()
+    const id = document.getElementById('no').value
+    const name = document.getElementById('name').value
+    const age = document.getElementById('age').value
+    const place = document.getElementById('place').value
+    data.push({id:id,name:name,age:age,place:place})
+    document.getElementById('no').value=''
+    document.getElementById('name').value=''
+    document.getElementById('age').value=''
+    document.getElementById('place').value=''
+
+    display()
+
+})
+
+let edit_id=''
+
+
+function edit_form(id){
+    console.log(id);
+    document.getElementById("edit_form").style.display='block'
+    document.getElementById("add_form").style.display='none'
+
+    edit_data=data.find(user=>user.id==id)
+    console.log(edit_data);
+    document.getElementById("eno").value=edit_data.id
+    document.getElementById("ename").value=edit_data.name
+    document.getElementById("eage").value=edit_data.age
+    document.getElementById("eplace").value=edit_data.place
+    edit_id=edit_data.id
+}
+
+document.getElementById("edit_form").addEventListener('submit',function(event){
+    
+    event.preventDefault()
+    const eid = document.getElementById('eno').value
+    const ename = document.getElementById('ename').value
+    const eage = document.getElementById('eage').value
+    const eplace = document.getElementById('eplace').value
+
+    data=data.map(user=>{
+        if (user.id==edit_id){
+            return {...user,id:eid,name:ename,age:eage,place:eplace}
+        }return user
+    })
+    document.getElementById("edit_form").style.display='none'
+    document.getElementById("add_form").style.display='block'
+    display()
+
+})
+
+
+display()
+
+
+// data.forEach((i)=>{
+//     let tr=document.createElement("tr")
+//     tr.innerHTML=`
+//     <td>${i.id}</td>
+//     <td>${i.name}</td>
+//     <td>${i.age}</td>
+//     <td>${i.place}</td>
+//     `
+//     table.appendChild(tr)
+// })
+
+
