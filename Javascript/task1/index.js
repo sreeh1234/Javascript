@@ -372,6 +372,9 @@ function display(){
         let delete_td=document.createElement("td")
         let delete_btn=document.createElement("button")
         delete_btn.textContent="delete"
+        delete_btn.onclick=function(){
+            delete_form(i.id)
+        }
         delete_td.appendChild(delete_btn)
         tr.appendChild(delete_td)
         
@@ -435,8 +438,19 @@ document.getElementById("edit_form").addEventListener('submit',function(event){
 
 })
 
+function delete_form(id){
+    data=data.filter(user=>{
+        if (user.id!=id){
+            return user
+        }
+    })
+    display()
+}
+
 
 display()
+
+
 
 
 // data.forEach((i)=>{

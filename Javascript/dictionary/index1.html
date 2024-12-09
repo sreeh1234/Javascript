@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        
+
+
+
+        {/* try{
+            console.log('a');
+        }
+        catch(error){
+            console.log('an error');
+            console.log(error.message);
+        }
+        finally{
+            console.log("finally");
+        } */}
+        
+
+
+
+
+        class Teacher{
+            constructor(name){
+                this.name=name
+            }
+            display(){
+                console.log('name',this.name);
+            }
+        }
+
+        class Std extends Teacher{
+            note(){
+                console.log('std note');
+
+            }
+        }
+        let obj=new Std('Mini')
+        obj.note()
+        obj.display()
+
+
+
+
+
+
+
+
+
+    
+    </script>
+</body>
+</html>
