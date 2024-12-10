@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    ul li{
+        color: red;
+    }
+</style>
+
+</head>
+<body>
+<!-- 
+    <form id="form">
+        <input type="text" id="a1">
+        <h6 id="demo"></h6>
+        <input type="submit" value="Add">
+    </form> -->
+    
+    <!-- <script>
+    document.getElementById("form").addEventListener('submit',function(event){
+        event.preventDefault()
+        let phno = document.getElementById("a1").value
+        let h1=document.getElementById("demo")
+        if(/^[6-9]\d{9}$/.test(phno)){
+            h1.innerHTML='valid'
+            h1.style.color='green'
+        }
+        else{
+            h1.innerHTML='*invalid'
+            h1.style.color='red'
+        }
+        document.getElementById("a1").value=''
+    })    
+    </script> -->
+        
+
+
+
+    <form id="form">
+    <h6 id="demo"></h6>
+    <input type="password" id="a1">
+    <ul>
+            <li id="len">Min 8 letter</li>
+            <li id="cap">Cap letter</li>
+            <li id="sml">Sml letter</li>
+            <li id="no">Number</li>
+            <li id="spl_chr">Spl chr</li>
+            
+    </ul>
+    <input type="submit" value="check">
+    </form> 
+    
+    <script>
+    let pswd=document.getElementById("a1")
+    let len=document.getElementById("length")
+    let cap=document.getElementById("cap")
+    let sml=document.getElementById("sml")
+    let no=document.getElementById("no")
+    let spl_chr=document.getElementById("spl_chr")
+
+
+    pswd.addEventListener('input',function(){
+        const password=pswd.value
+        len.style.color=password.length>8 ? 'green' : 'red'
+        cap.style.color=/[A-Z]/.test(password) ? 'green' : 'red'
+        sml.style.color=/[a-z]/.test(password) ? 'green' : 'red'
+        no.style.color=/\d/.test(password) ? 'green' : 'red'
+        spl_chr.style.color=/[!@#$%&*]/.test(password) ? 'green' : 'red'
+        
+    })
+    document.getElementById("form").addEventListener('submit',function(event){
+        event.preventDefault()
+        let password=document.getElementById('a1').value
+        let h1=document.getElementById("demo")
+        if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(password)){  
+            h1.innerHTML='valid'
+            h1.style.color='green'
+        }
+        else{
+            h1.innerHTML='*invalid'
+            h1.style.color='red'
+        }
+        document.getElementById("a1").value=''      
+    })
+    </script> 
+
+
+         <!-- try{
+            console.log('a');
+        }
+        catch(error){
+            console.log('an error');
+            console.log(error.message);
+        }
+        finally{
+            console.log("finally");
+        } 
+         -->
+
+
+<!-- 
+
+        class Teacher{
+            constructor(name){
+                this.name=name
+            }
+            display(){
+                console.log('name',this.name);
+            }
+        }
+
+        class Std extends Teacher{
+            note(){
+                console.log('std note');
+
+            }
+        }
+        let obj=new Std('Mini')
+        obj.note()
+        obj.display()  -->
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+</body>
+</html>

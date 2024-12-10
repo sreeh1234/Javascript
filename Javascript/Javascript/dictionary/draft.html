@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    data={id:'1',
+    fname:'manu',
+    lname:'p',
+    fullname:function(){
+        return this.fname+this.lname
+    },
+    age:25,
+    place:'tvm'}
+    console.log(data);
+    console.log(data.fname);
+
+    console.log(data.fullname()); 
+
+
+    
+    
+    
+    function display(result){
+        console.log(result);
+
+    }
+    function add(a,b,callback){
+        let c=a+b
+        callback(c)
+
+    }
+    add(10,5,display)
+
+
+
+
+
+    console.log('start');
+    for(let i=0;i<=1000;i++){
+        console.log(i);
+    }
+    console.log('end');
+
+
+    console.log('start');
+    setTimeout(()=>{
+        console.log('async function');
+    },2000)
+    console.log('end');
+
+
+    <h1 id="demo"></h1>
+    let minute=2
+    let second=59
+    const data=setInterval(()=>{
+        document.getElementById("demo").innerHTML=minute+':'+second
+        second--;
+        if(second==0){
+            minute--
+            second=59
+            if(minute<0){
+                clearInterval(data)
+                document.getElementById("demo").innerHTML='Ends'
+            }
+            
+            
+        }
+
+      
+    },1000)
+    data()
+
+
+</body>
+</html>
