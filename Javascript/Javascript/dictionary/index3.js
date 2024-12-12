@@ -9,10 +9,26 @@ fetch('https://dummyjson.com/products').then(response=>response.json()).then(dat
             <div class="card-body">
             <h4 class="card-title">${element.title}</h4>
             <p class="card-text">${element.description}</p>
-            <a href="#" class="btn btn-primary">See Profile</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" data-id="${element.id}">
+            View Product
+            </button>
             </div>
         </div>
         `
         row.appendChild(col)
     });
-})
+    document.querySelectorAll(".btn").forEach(btn=>{        
+        btn.addEventListener('click',(e)=>{
+            const pro_id=e.target.getAttribute('data-id')        
+            const product=data.products.find((pro)=>pro.id==pro_id)
+            document.getElementById("model_img").src=product.thumbnail
+            document.getElementById("title").innerHTML=product.title
+            document.getElementById("dis").innerHTML=`
+            ${product.price} <br> ${product.discountPercentage} <br> ${product.description}
+            `
+
+            
+        })
+    })
+
+})  
